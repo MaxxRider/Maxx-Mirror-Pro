@@ -1,5 +1,5 @@
 {
-    "name": "magneto-python-aria",
+    "name": "Maxx Torrent Mirror",
     "description": "Telegram mirror bot with python",
     "logo": "https://telegra.ph/file/e15e9ac9c5885b015e3ab.jpg",
     "keywords": [
@@ -8,9 +8,9 @@
       "aria",
       "python"
     ],
-    "repository": "https://github.com/sanakek/magneto-python-aria.git",
-    "website": "https://github.com/sanakek/magneto-python-aria/tree/master",
-    "success_url": "https://github.com/lzzy12/python-aria-mirror-bot/blob/master/README.md",
+    "repository": "https://github.com/MaxxRider/Maxx-Torrent-Mirror-V2",
+    "website": "https://github.com/MaxxRider/Maxx-Torrent-Mirror-V2/tree/main",
+    "success_url": "https://github.com/MaxxRider/Maxx-Torrent-Mirror-V2/blob/main/README.md",
     "stack": "container",
     "env": {
       "ENV": {
