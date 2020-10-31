@@ -25,14 +25,14 @@ This is a telegram bot writen in python for mirroring files on the internet to o
 
 ##👩‍🚒𝗠𝗢𝗗𝗜𝗙𝗜𝗘𝗗 𝗕𝗬 :[𝗠𝗮𝘅𝘅𝗥𝗶𝗱𝗲𝗿](https://t.me/MaxxRider)
 
--👁️‍🗨️:Cool and stylish Progress Bar
--👁️‍🗨️:Change Requirment text 
--👁️‍🗨️:Now YTDL Fixed
--👁️‍🗨️:Fixing Minor bugs
--👁️‍🗨️:Change Dockerfile
-🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸
+-Cool and stylish Progress Bar
+-Change Requirment text 
+-Now YTDL Fixed
+-Fixing Minor bugs
+-Change Dockerfile
+
 ##🖍️𝗝𝗢𝗜𝗡 𝗢𝗨𝗥 𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗚𝗥𝗢𝗨𝗣🖍️
-#[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗚𝗥𝗢𝗨𝗣](https://t.me/MaxxBotChat):
+-[𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗚𝗥𝗢𝗨𝗣](https://t.me/MaxxBotChat):
 
 ## Bot commands to be set in botfather
 
