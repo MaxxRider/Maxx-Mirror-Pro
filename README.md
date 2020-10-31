@@ -23,6 +23,10 @@ This is a telegram bot writen in python for mirroring files on the internet to o
 - Uploading To Team Drives.
 - Index Link support
 
+🛑 **ABOUT MEGA.NZ LINK** 🛑:
+MEGA Link it's too much Buggy and unstable 🌝😑!
+I recommend better Remove Mega Link support!
+
 👩‍🚒 **𝗠𝗢𝗗𝗜𝗙𝗜𝗘𝗗 𝗕𝗬** :[𝗠𝗮𝘅𝘅𝗥𝗶𝗱𝗲𝗿](https://t.me/MaxxRider)
 
 - Cool and stylish Progress Bar
@@ -53,9 +57,9 @@ ping - ping bot
 log - bot log [owner only]
 ```
 
-# How to deploy?
+# 𝗛𝗢𝗪 𝗧𝗢 𝗗𝗘𝗣𝗟𝗢𝗬?🤔
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https://github.com/MaxxRider/Maxx-Torrent-Mirror-V2/tree/main)
 
 ## Setting up config file
 ```
