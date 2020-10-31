@@ -106,7 +106,7 @@ def get_readable_message():
                 except:
                     pass
             if download.status() == MirrorStatus.STATUS_DOWNLOADING:
-                msg += f"\n○<b>CANCEL</b> <code>/cancel4 {download.gid()}</code>"
+                msg += f"\n○<b>CANCEL</b> <code>/cancel {download.gid()}</code>"
             msg += "\n\n"
         return msg
 
