@@ -59,7 +59,7 @@ log - bot log [owner only]
 
 # 𝗛𝗢𝗪 𝗧𝗢 𝗗𝗘𝗣𝗟𝗢𝗬?🤔
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https://github.com/MaxxRider/Maxx-Torrent-Mirror-V2/tree/main)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https://github.com/junedkh/Maxx-Torrent-Mirror-V2/tree/main)
 
 ## Setting up config file
 ```
