@@ -58,6 +58,8 @@ help - get detailed help
 ping - ping bot
 log - bot log [owner only]
 ```
+🤧🤧🤧🤧🤧🤧🤧
+![Don't Deploy](https://telegra.ph/file/854e5ce82bf8474a2d16b.png)
 
 # 𝗛𝗢𝗪 𝗧𝗢 𝗗𝗘𝗣𝗟𝗢𝗬?🤔
 
