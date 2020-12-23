@@ -1,4 +1,4 @@
-![MAXX MIRROR V2]( "https://telegra.ph/file/72f7bb3672712eb7a8722.png")
+![MAXX MIRROR V2](https://telegra.ph/file/72f7bb3672712eb7a8722.png)
 
 # Important - Read these points first
 - Original repo is https://github.com/lzzy12/python-aria-mirror-bot
