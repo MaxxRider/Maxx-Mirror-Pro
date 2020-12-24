@@ -19,7 +19,6 @@ from oauth2client.client import OAuth2Credentials
 
 from telegram import InlineKeyboardMarkup
 from bot.helper.telegram_helper import button_build
-from telegraph import Telegraph
 
 from bot import parent_id, DOWNLOAD_DIR, IS_TEAM_DRIVE, INDEX_URL, \
     USE_SERVICE_ACCOUNTS, download_dict, telegraph_token, BUTTON_THREE_NAME, BUTTON_THREE_URL, BUTTON_FOUR_NAME, BUTTON_FOUR_URL, BUTTON_FIVE_NAME, BUTTON_FIVE_URL, CRED_JSON
