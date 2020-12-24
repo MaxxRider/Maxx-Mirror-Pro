@@ -29,7 +29,6 @@ from bot.helper.ext_utils.fs_utils import get_mime_type
 LOGGER = logging.getLogger(__name__)
 logging.getLogger('googleapiclient.discovery').setLevel(logging.ERROR)
 SERVICE_ACCOUNT_INDEX = 0
-TELEGRAPHLIMIT = 95
 
 
 class GoogleDriveHelper:
