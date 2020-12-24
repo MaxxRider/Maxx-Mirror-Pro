@@ -2,7 +2,7 @@ import os
 import pickle
 import urllib.parse as urlparse
 from urllib.parse import parse_qs
-
+import httplib2
 import re
 import json
 import requests
@@ -15,13 +15,14 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
 from tenacity import *
+from oauth2client.client import OAuth2Credentials
 
 from telegram import InlineKeyboardMarkup
 from bot.helper.telegram_helper import button_build
 from telegraph import Telegraph
 
 from bot import parent_id, DOWNLOAD_DIR, IS_TEAM_DRIVE, INDEX_URL, \
-    USE_SERVICE_ACCOUNTS, download_dict, telegraph_token, BUTTON_THREE_NAME, BUTTON_THREE_URL, BUTTON_FOUR_NAME, BUTTON_FOUR_URL, BUTTON_FIVE_NAME, BUTTON_FIVE_URL
+    USE_SERVICE_ACCOUNTS, download_dict, telegraph_token, BUTTON_THREE_NAME, BUTTON_THREE_URL, BUTTON_FOUR_NAME, BUTTON_FOUR_URL, BUTTON_FIVE_NAME, BUTTON_FIVE_URL, CRED_JSON
 from bot.helper.ext_utils.bot_utils import *
 from bot.helper.ext_utils.fs_utils import get_mime_type
 
@@ -56,7 +57,6 @@ class GoogleDriveHelper:
         self.updater = None
         self.name = name
         self.update_interval = 3
-        self.telegraph_content = []
         self.path = []
 
     def cancel(self):
@@ -426,48 +426,15 @@ class GoogleDriveHelper:
         # Get credentials
         credentials = None
         if not USE_SERVICE_ACCOUNTS:
-            if os.path.exists(self.__G_DRIVE_TOKEN_FILE):
-                with open(self.__G_DRIVE_TOKEN_FILE, 'rb') as f:
-                    credentials = pickle.load(f)
-            if credentials is None or not credentials.valid:
-                if credentials and credentials.expired and credentials.refresh_token:
-                    credentials.refresh(Request())
-                else:
-                    flow = InstalledAppFlow.from_client_secrets_file(
-                        'credentials.json', self.__OAUTH_SCOPE)
-                    LOGGER.info(flow)
-                    credentials = flow.run_console(port=0)
-
-                # Save the credentials for the next run
-                with open(self.__G_DRIVE_TOKEN_FILE, 'wb') as token:
-                    pickle.dump(credentials, token)
+            crds = OAuth2Credentials.from_json(CRED_JSON)
+            crds.refresh(httplib2.Http())
+            http = crds.authorize(httplib2.Http())
         else:
             LOGGER.info(f"Authorizing with {SERVICE_ACCOUNT_INDEX}.json service account")
             credentials = service_account.Credentials.from_service_account_file(
                 f'accounts/{SERVICE_ACCOUNT_INDEX}.json',
                 scopes=self.__OAUTH_SCOPE)
-        return build('drive', 'v3', credentials=credentials, cache_discovery=False)
-
-    def edit_telegraph(self):
-        nxt_page = 1 
-        prev_page = 0
-        for content in self.telegraph_content :
-            if nxt_page == 1 :
-                content += f'<b><a href="https://telegra.ph/{self.path[nxt_page]}">Next</a></b>'
-                nxt_page += 1
-            else :
-                if prev_page <= self.num_of_path:
-                    content += f'<b><a href="https://telegra.ph/{self.path[prev_page]}">Prev</a></b>'
-                    prev_page += 1
-                if nxt_page < self.num_of_path:
-                    content += f'<b> | <a href="https://telegra.ph/{self.path[nxt_page]}">Next</a></b>'
-                    nxt_page += 1
-            Telegraph(access_token=telegraph_token).edit_page(path = self.path[prev_page],
-                                 title = 'Mirror Bot Search',
-                                 author_name='Mirror Bot',
-                                 author_url='https://github.com/magneto261290/magneto-python-ariap',
-                                 html_content=content)
-        return
+        return build('drive', 'v3', http=http, cache_discovery=False)                                                        
 
     def escapes(self, str):
         chars = ['\\', "'", '"', r'\a', r'\b', r'\f', r'\n', r'\r', r'\t']
@@ -477,73 +444,6 @@ class GoogleDriveHelper:
 
     def drive_list(self, fileName):
         msg = ""
-        fileName = self.escapes(str(fileName))
-        # Create Search Query for API request.
-        query = f"'{parent_id}' in parents and (name contains '{fileName}')"
-        response = self.__service.files().list(supportsTeamDrives=True,
-                                               includeTeamDriveItems=True,
-                                               q=query,
-                                               spaces='drive',
-                                               pageSize=200,
-                                               fields='files(id, name, mimeType, size)',
-                                               orderBy='modifiedTime desc').execute()
-
-        content_count = 0
-        if response["files"]:
-            msg += f'<h4>Results : {fileName}</h4><br><br>'
-
-            for file in response.get('files', []):
-                if file.get('mimeType') == "application/vnd.google-apps.folder":  # Detect Whether Current Entity is a Folder or File.
-                    msg += f"⁍<code>{file.get('name')}<br>(folder📁)</code><br>" \
-                           f"<b><a href='https://drive.google.com/drive/folders/{file.get('id')}'>🌍 𝗚-𝗗𝗥𝗜𝗩𝗘 𝗨𝗥𝗟</a></b>"
-                    if INDEX_URL is not None:
-                        url = requests.utils.requote_uri(f'{INDEX_URL}/{file.get("name")}/')
-                        msg += f' <b>| <a href="{url}>🏷️ 𝗜𝗡𝗗𝗘𝗫 𝗨𝗥𝗟</a></b>'
-
-                else:
-                    msg += f"<b>○ File Name :</b> <code>{file.get('name')}<br>({get_readable_file_size(int(file.get('size')))}) 📄</code><br>" \
-                           f"<b><a href='https://drive.google.com/uc?id={file.get('id')}&export=download'>🌍 𝗚-𝗗𝗥𝗜𝗩𝗘 𝗨𝗥𝗟</a></b>"
-                    if INDEX_URL is not None:
-                        url = requests.utils.requote_uri(f'{INDEX_URL}/{file.get("name")}')
-                        msg += f' <b>| <a href="{url}">🏷️ 𝗜𝗡𝗗𝗘𝗫 𝗨𝗥𝗟</a></b>'
-
-                msg += '<br><br>'
-                content_count += 1
-                if content_count == TELEGRAPHLIMIT :
-                    self.telegraph_content.append(msg)
-                    msg = ""
-                    content_count = 0
-
-            if msg != '':
-                self.telegraph_content.append(msg)
-
-            if len(self.telegraph_content) == 0:
-                return "No Result Found :(", None
-
-            for content in self.telegraph_content :
-                self.path.append(Telegraph(access_token=telegraph_token).create_page(
-                                                        title = 'Mirror Bot Search',
-                                                        author_name='Mirror Bot',
-                                                        author_url='https://github.com/magneto261290/magneto-python-aria',
-                                                        html_content=content
-                                                        )['path'])
-
-            self.num_of_path = len(self.path)
-            if self.num_of_path > 1:
-                self.edit_telegraph()
-
-            msg = f"<b>Search Results For {fileName} 👇</b>"
-            buttons = button_build.ButtonMaker()   
-            buttons.buildbutton("HERE", f"https://telegra.ph/{self.path[0]}")
-
-            return msg, InlineKeyboardMarkup(buttons.build_menu(1))
-
-        else :
-            return '', ''
-
-    def drive_slist(self, fileName):
-        msg = ""
-        fileName = self.escapes(str(fileName))
         # Create Search Query for API request.
         query = f"'{parent_id}' in parents and (name contains '{fileName}')"
         response = self.__service.files().list(supportsTeamDrives=True,
