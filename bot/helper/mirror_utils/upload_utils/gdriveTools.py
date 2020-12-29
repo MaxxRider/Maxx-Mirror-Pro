@@ -19,6 +19,7 @@ from oauth2client.client import OAuth2Credentials
 
 from telegram import InlineKeyboardMarkup
 from bot.helper.telegram_helper import button_build
+from telegraph import Telegraph
 
 from bot import parent_id, DOWNLOAD_DIR, IS_TEAM_DRIVE, INDEX_URL, \
     USE_SERVICE_ACCOUNTS, download_dict, BUTTON_THREE_NAME, BUTTON_THREE_URL, BUTTON_FOUR_NAME, BUTTON_FOUR_URL, BUTTON_FIVE_NAME, BUTTON_FIVE_URL, CRED_JSON
@@ -28,7 +29,7 @@ from bot.helper.ext_utils.fs_utils import get_mime_type
 LOGGER = logging.getLogger(__name__)
 logging.getLogger('googleapiclient.discovery').setLevel(logging.ERROR)
 SERVICE_ACCOUNT_INDEX = 0
-
+TELEGRAPHLIMIT = 95
 
 class GoogleDriveHelper:
     def __init__(self, name=None, listener=None):
