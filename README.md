@@ -148,10 +148,10 @@ machine host login username password my_youtube_password
 ```
 where host is the name of extractor (eg. youtube, twitch). Multiple accounts of different hosts can be added each separated by a new line
 
+# 💡𝖳𝖤𝖫𝖤𝖦𝖱𝖠𝖬
+
 <a href="https://telegram.dog/MaxxRiderz">
 <img src="https://telegra.ph/file/dbcbf63efa46bebee70ce.png" alt="START">
-
-#🎴 𝖳𝖤𝖫𝖤𝖦𝖱𝖠𝖬 🎴
 
 <a href="https://telegram.dog/MaxxBots">
 <img src="https://telegra.ph/file/a40d35b7ac20fa4ef2cc3.png" alt="START">
