@@ -150,7 +150,7 @@ where host is the name of extractor (eg. youtube, twitch). Multiple accounts of 
 
 # 💡𝖳𝖤𝖫𝖤𝖦𝖱𝖠𝖬
 
-<a href="https://telegram.dog/MaxxRiderz">
+<a href="https://telegram.dog/MaxxBotChat">
 <img src="https://telegra.ph/file/dbcbf63efa46bebee70ce.png" alt="START">
 
 # 𝙾𝙵𝙵𝙸𝙲𝙸𝙰𝙻 𝚃𝙶 𝙲𝙷𝙰𝙽𝙽𝙴𝙻 𝙾𝚁 𝙶𝚁𝙾𝚄𝙿 
