@@ -23,7 +23,8 @@ This is a telegram bot writen in python for mirroring files on the internet to o
 - Download/upload speeds and ETAs
 - Docker support
 - Uploading To Team Drives.
-- Index Link support
+- Index Link Support
+- 
 
 🛑 **ABOUT MEGA.NZ LINK** 🛑:
 MEGA Link it's too much Buggy and unstable 🌝😑!
@@ -36,6 +37,8 @@ I recommend better Remove Mega Link support!
 - Now YTDL Fixed
 - Fixing Minor bugs
 - Change Dockerfile
+- Uploading issue Fixed
+- Dead Torrent Link detected
 
 📭 **𝗝𝗢𝗜𝗡 𝗢𝗨𝗥 𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗚𝗥𝗢𝗨𝗣:** [𝗦𝗨𝗣𝗣𝗢𝗥𝗧 𝗚𝗥𝗢𝗨𝗣](https://t.me/MaxxBotChat):
 
@@ -61,9 +64,6 @@ log - bot log [owner only]
 🤧🤧🤧🤧🤧🤧🤧
 ![Don't Deploy](https://telegra.ph/file/854e5ce82bf8474a2d16b.png)
 
-# 𝗛𝗢𝗪 𝗧𝗢 𝗗𝗘𝗣𝗟𝗢𝗬?🤔
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https://github.com/MaxxRider/Maxx-Torrent-Mirror-V2/tree/main)
 
 ## Setting up config file
 ```
