@@ -3,7 +3,7 @@
 # What is this repo about?
 This is a telegram bot writen in python for mirroring files on the internet to our beloved Google Drive.
 
-# 📭𝗙𝗘𝗔𝗧𝗨𝗥𝗘𝗦 𝗔𝗡𝗗 𝗦𝗨𝗣𝗣𝗢𝗥𝗧𝗘𝗗📭
+# 📭𝗙𝗘𝗔𝗧𝗨𝗥𝗘𝗦 𝗔𝗡𝗗 𝗦𝗨𝗣𝗣𝗢𝗥𝗧𝗘𝗗
 - Mirroring direct download links to google drive
 - Mirroring Mega.nz links to google drive (In development stage)
 - Mirror Telegram files to google drive
