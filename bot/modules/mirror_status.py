@@ -7,7 +7,7 @@ from telegram.error import BadRequest
 from bot.helper.telegram_helper.filters import CustomFilters
 from bot.helper.telegram_helper.bot_commands import BotCommands
 import threading
-
+ 
 @run_async
 def mirror_status(update,context):
     message = get_readable_message()
@@ -23,8 +23,8 @@ def mirror_status(update,context):
             del status_reply_dict[index]
     sendStatusMessage(update,context.bot)
     deleteMessage(context.bot,update.message)
-
-
+ 
+ 
 mirror_status_handler = CommandHandler(BotCommands.StatusCommand, mirror_status,
                                        filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
 dispatcher.add_handler(mirror_status_handler)
