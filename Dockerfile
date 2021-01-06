@@ -13,6 +13,8 @@ RUN apt-get -qq update && \
 
 COPY requirements.txt .
 COPY extract /usr/local/bin
+RUN pip3 uninstall appdirs
+RUN pip3 install appdirs
 RUN chmod +x /usr/local/bin/extract
 RUN pip3 install --no-cache-dir -r requirements.txt
 RUN locale-gen en_US.UTF-8
