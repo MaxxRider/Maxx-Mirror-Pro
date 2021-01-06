@@ -1,12 +1,5 @@
 ![MAXX MIRROR V2](https://telegra.ph/file/72f7bb3672712eb7a8722.png)
 
-# Important - Read these points first
-- Original repo is https://github.com/lzzy12/python-aria-mirror-bot
-- I have collected some cool features from various repositories and merged them in one.
-- So, credits goes to original repo holder, not to me. I have just collected them.
-- This (or any custom) repo is not supported in official bot support group.
-- So if you have any issue then check first that issue is in official repo or not, You are only allowed to report that issue in bot support group if that issue is also present in official repo.
-
 # What is this repo about?
 This is a telegram bot writen in python for mirroring files on the internet to our beloved Google Drive.
 
@@ -150,10 +143,3 @@ machine host login username password my_youtube_password
 ```
 where host is the name of extractor (eg. youtube, twitch). Multiple accounts of different hosts can be added each separated by a new line
 
-
-╭━╮╭━┳━━━┳━╮╭━┳━╮╭━╮
-┃┃╰╯┃┃╭━╮┣╮╰╯╭┻╮╰╯╭╯
-┃╭╮╭╮┃┃╱┃┃╰╮╭╯╱╰╮╭╯
-┃┃┃┃┃┃╰━╯┃╭╯╰╮╱╭╯╰╮
-┃┃┃┃┃┃╭━╮┣╯╭╮╰┳╯╭╮╰╮
-╰╯╰╯╰┻╯╱╰┻━╯╰━┻━╯╰━╯
