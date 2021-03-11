@@ -14,3 +14,6 @@ TgCrypto>=1.1.1,<1.1.10
 youtube-dl
 lxml
 telegraph
+appdirs
+speedtest-cli
+messages
